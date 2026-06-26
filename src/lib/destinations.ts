@@ -6,6 +6,7 @@ import kerala from "@/assets/dest-kerala.jpg";
 import shimla from "@/assets/dest-shimla.jpg";
 import manali from "@/assets/dest-manali.jpg";
 import rajasthan from "@/assets/dest-rajasthan.jpg";
+import kashmir from "@/assets/dest-kashmir.jpg";
 
 export type Destination = {
   slug: string;
@@ -107,6 +108,17 @@ export const destinations: Destination[] = [
     short: "The oldest fold mountains in India — Mount Abu, Kumbhalgarh ridges, and Jain temples cut into ochre rock.",
     long: "The Aravalli range runs the length of Rajasthan, peaking at Guru Shikhar (1,722 m) above Mount Abu — the state's only hill station and a cool counterpoint to the desert below. Add Kumbhalgarh's 36-km fort wall, the marble Dilwara temples, and the leopard country around Bera for a week that mixes mountains, heritage and wildlife.",
     knownFor: ["Mount Abu", "Guru Shikhar", "Kumbhalgarh", "Dilwara Temples"],
+  },
+  {
+    slug: "kashmir",
+    name: "Kashmir",
+    region: "Northwest Himalaya",
+    altitude: "1,600 – 5,142 m",
+    bestSeason: "April – June, September – October",
+    image: kashmir,
+    short: "Dal Lake shikaras, alpine meadows of Gulmarg, and the Great Himalayan peaks rising above the Kashmir Valley.",
+    long: "The Kashmir Valley sits between the Pir Panjal and the Great Himalaya — a 135-km bowl of walnut orchards, saffron fields, and houseboat-lined lakes. Srinagar is the anchor: Dal Lake at dawn, the old city markets, and the Mughal gardens of Shalimar and Nishat. From here, Gulmarg opens up to the world's second-highest cable car and snowbound meadows at 3,800 m, while Pahalgam sits at the mouth of the Amarnath pilgrimage route. Sonmarg, the 'meadow of gold', is the base for the Thajiwas Glacier trek and the high-altitude lakes of Vishansar and Krishansar.",
+    knownFor: ["Dal Lake", "Gulmarg Gondola", "Pahalgam", "Sonmarg"],
   },
 ];
 
