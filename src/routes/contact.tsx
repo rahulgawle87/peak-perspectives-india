@@ -116,7 +116,10 @@ function ContactPage() {
             </div>
             <div>
               <div className="eyebrow mb-1">WhatsApp</div>
-              <a href="tel:+917506308753" className="text-foreground hover:text-[var(--color-pine)]">+91 75063 08753</a>
+              <div className="space-y-1">
+                <a href="https://wa.me/917506308753" className="block text-foreground hover:text-[var(--color-pine)]">+91 75063 08753</a>
+                <a href="https://wa.me/917977958220" className="block text-foreground hover:text-[var(--color-pine)]">+91 79779 58220</a>
+              </div>
             </div>
           </div>
         </div>
