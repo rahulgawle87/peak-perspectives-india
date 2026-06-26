@@ -60,7 +60,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             <ul className="space-y-2 text-sm">
               <li><a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-foreground text-foreground/75">Instagram</a></li>
               <li><a href="https://youtube.com" target="_blank" rel="noreferrer" className="hover:text-foreground text-foreground/75">YouTube</a></li>
-              <li><a href="mailto:hello@mountaindelights.in" className="hover:text-foreground text-foreground/75">hello@mountaindelights.in</a></li>
+              <li><a href="mailto:info@mountaindelights.in" className="hover:text-foreground text-foreground/75">info@mountaindelights.in</a></li>
             </ul>
           </div>
         </div>
