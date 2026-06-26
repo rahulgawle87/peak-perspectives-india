@@ -116,11 +116,7 @@ function ContactPage() {
             </div>
             <div>
               <div className="eyebrow mb-1">WhatsApp</div>
-              <a href="tel:+919876543210" className="text-foreground hover:text-[var(--color-pine)]">+91 98765 43210</a>
-            </div>
-            <div>
-              <div className="eyebrow mb-1">Office</div>
-              <p>Old Manali, near Manu Temple — Himachal Pradesh 175131</p>
+              <a href="tel:+917506308753" className="text-foreground hover:text-[var(--color-pine)]">+91 75063 08753</a>
             </div>
           </div>
         </div>
