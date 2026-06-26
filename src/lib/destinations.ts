@@ -5,6 +5,7 @@ import sikkim from "@/assets/dest-sikkim.jpg";
 import kerala from "@/assets/dest-kerala.jpg";
 import shimla from "@/assets/dest-shimla.jpg";
 import manali from "@/assets/dest-manali.jpg";
+import rajasthan from "@/assets/dest-rajasthan.jpg";
 
 export type Destination = {
   slug: string;
@@ -95,6 +96,17 @@ export const destinations: Destination[] = [
     short: "Old Manali's wooden Himachali houses, the Beas river through deodar pines, and the gateway to Lahaul.",
     long: "Skip Mall Road and base yourself in Old Manali or the villages around Naggar. From here it's a half-day drive over the Atal Tunnel into the lunar landscape of Lahaul, or a hard day's trek to Bhrigu Lake at 4,300 m.",
     knownFor: ["Solang Valley", "Atal Tunnel", "Hadimba Temple", "Bhrigu Lake"],
+  },
+  {
+    slug: "rajasthan",
+    name: "Rajasthan — Aravallis",
+    region: "Western India",
+    altitude: "300 – 1,722 m",
+    bestSeason: "October – March",
+    image: rajasthan,
+    short: "The oldest fold mountains in India — Mount Abu, Kumbhalgarh ridges, and Jain temples cut into ochre rock.",
+    long: "The Aravalli range runs the length of Rajasthan, peaking at Guru Shikhar (1,722 m) above Mount Abu — the state's only hill station and a cool counterpoint to the desert below. Add Kumbhalgarh's 36-km fort wall, the marble Dilwara temples, and the leopard country around Bera for a week that mixes mountains, heritage and wildlife.",
+    knownFor: ["Mount Abu", "Guru Shikhar", "Kumbhalgarh", "Dilwara Temples"],
   },
 ];
 
