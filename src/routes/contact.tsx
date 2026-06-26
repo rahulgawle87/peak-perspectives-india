@@ -25,6 +25,7 @@ const DESTINATIONS = [
   "Kerala — Western Ghats",
   "Shimla",
   "Manali",
+  "Rajasthan — Aravallis",
   "Not sure yet",
 ] as const;
 

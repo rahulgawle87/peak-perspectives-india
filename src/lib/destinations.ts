@@ -105,7 +105,7 @@ export const destinations: Destination[] = [
     bestSeason: "October – March",
     image: rajasthan,
     short: "The oldest fold mountains in India — Mount Abu, Kumbhalgarh ridges, and Jain temples cut into ochre rock.",
-    long: "The Aravalli range runs the length of Rajasthan, peaking at Guru Shikhar (1,722 m) above Mount Abu — the state's only hill station and a cool counterpoint to the desert below. Add Kumbhalgarh's 36-km fort wall, the marble Dilwara temples, and the leopard country around Bera for a week that mixes mountains, heritage and wildlife.</n",
+    long: "The Aravalli range runs the length of Rajasthan, peaking at Guru Shikhar (1,722 m) above Mount Abu — the state's only hill station and a cool counterpoint to the desert below. Add Kumbhalgarh's 36-km fort wall, the marble Dilwara temples, and the leopard country around Bera for a week that mixes mountains, heritage and wildlife.",
     knownFor: ["Mount Abu", "Guru Shikhar", "Kumbhalgarh", "Dilwara Temples"],
   },
 ];
