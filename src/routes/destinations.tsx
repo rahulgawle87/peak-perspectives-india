@@ -6,9 +6,9 @@ export const Route = createFileRoute("/destinations")({
   head: () => ({
     meta: [
       { title: "Destinations — Indian mountain regions | Mountain Delights" },
-      { name: "description", content: "Detailed notes on Ladakh, Himachal, Uttarakhand, Sikkim, Kerala, Shimla and Manali — altitudes, seasons, and what each region is actually known for." },
+      { name: "description", content: "Detailed notes on Ladakh, Himachal, Uttarakhand, Sikkim, Kerala, Shimla, Manali and Kashmir — altitudes, seasons, and what each region is actually known for." },
       { property: "og:title", content: "Indian mountain destinations" },
-      { property: "og:description", content: "Routes and field-checked notes on seven mountain regions across India." },
+      { property: "og:description", content: "Routes and field-checked notes on eight mountain regions across India." },
     ],
   }),
   component: DestinationsPage,
@@ -20,7 +20,7 @@ function DestinationsPage() {
       <section className="container-prose pt-20 pb-16 md:pt-28 md:pb-20">
         <span className="eyebrow">Destinations</span>
         <h1 className="mt-4 font-serif text-4xl md:text-6xl max-w-3xl leading-tight">
-          Seven mountain regions, each on its own clock.
+          Eight mountain regions, each on its own clock.
         </h1>
         <p className="mt-6 max-w-2xl text-lg text-foreground/80">
           The Indian mountains aren't one trip. The Trans-Himalaya is a cold

@@ -6,6 +6,7 @@ import kerala from "@/assets/dest-kerala.jpg";
 import shimla from "@/assets/dest-shimla.jpg";
 import manali from "@/assets/dest-manali.jpg";
 import rajasthan from "@/assets/dest-rajasthan.jpg";
+import kashmir from "@/assets/dest-kashmir.jpg";
 
 export type Destination = {
   slug: string;
