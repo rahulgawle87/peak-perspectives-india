@@ -94,6 +94,26 @@ function ContactPage() {
       toast.error("Something went wrong. Please try again or email us directly.");
       return;
     }
+
+    const waMessage = [
+      "*New trip inquiry — Mountain Delights*",
+      "",
+      `Name: ${data.full_name}`,
+      `Email: ${data.email}`,
+      data.phone ? `Phone: ${data.phone}` : "",
+      `Destination: ${data.destination}`,
+      data.start_date ? `Start date: ${data.start_date}` : "",
+      data.end_date ? `End date: ${data.end_date}` : "",
+      `Travelers: ${data.travelers}`,
+      `Budget: ${data.budget_range}`,
+      data.message ? `\nMessage: ${data.message}` : "",
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    const waUrl = `https://wa.me/917977958220?text=${encodeURIComponent(waMessage)}`;
+    window.open(waUrl, "_blank", "noopener,noreferrer");
+
     setSent(true);
   };
 
