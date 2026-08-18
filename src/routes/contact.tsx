@@ -113,7 +113,7 @@ function ContactPage() {
           <div className="mt-10 space-y-4 text-sm">
             <div>
               <div className="eyebrow mb-1">Write</div>
-              <a href="mailto:info@mountaindelights.in" className="text-foreground hover:text-[var(--color-pine)]">info@mountaindelights.in</a>
+              <a href="mailto:mountaindelights05@gmail.com" className="text-foreground hover:text-[var(--color-pine)]">mountaindelights05@gmail.com</a>
             </div>
               <div>
               <div className="eyebrow mb-1">WhatsApp</div>
@@ -133,7 +133,7 @@ function ContactPage() {
             <div className="py-10 text-center">
               <div className="font-serif text-2xl">Got it — talk soon.</div>
               <p className="mt-2 text-muted-foreground">
-                We'll reply from info@mountaindelights.in within two working days.
+                We'll reply from mountaindelights05@gmail.com within two working days.
               </p>
             </div>
           ) : (
