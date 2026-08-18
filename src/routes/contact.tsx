@@ -153,8 +153,14 @@ function ContactPage() {
             <div className="py-10 text-center">
               <div className="font-serif text-2xl">Got it — talk soon.</div>
               <p className="mt-2 text-muted-foreground">
-                We'll reply from mountaindelights05@gmail.com within two working days.
+                A WhatsApp message with your trip details has been opened. Just tap send and we'll reply from mountaindelights05@gmail.com within two working days.
               </p>
+              <a
+                href="https://wa.me/917977958220"
+                className="mt-4 inline-block text-sm text-[var(--color-pine)] hover:underline"
+              >
+                Open WhatsApp again →
+              </a>
             </div>
           ) : (
             <>
