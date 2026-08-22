@@ -16,7 +16,6 @@ export function SiteLayout({ children }: { children: ReactNode }) {
         <div className="container-prose flex items-center justify-between h-16">
           <Link to="/" className="flex items-baseline gap-2">
             <span className="font-serif text-xl tracking-tight text-foreground">Mountain Delights</span>
-            <span className="hidden sm:inline text-[11px] uppercase tracking-[0.22em] text-muted-foreground">India</span>
           </Link>
           <nav className="hidden md:flex items-center gap-7 text-sm">
             {nav.slice(1).map((n) => (
