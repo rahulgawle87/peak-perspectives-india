@@ -95,9 +95,7 @@ function ContactPage() {
       return;
     }
 
-    const waMessage = [
-      "*New trip inquiry — Mountain Delights*",
-      "",
+    const lines = [
       `Name: ${data.full_name}`,
       `Email: ${data.email}`,
       data.phone ? `Phone: ${data.phone}` : "",
@@ -107,15 +105,23 @@ function ContactPage() {
       `Travelers: ${data.travelers}`,
       `Budget: ${data.budget_range}`,
       data.message ? `\nMessage: ${data.message}` : "",
-    ]
-      .filter(Boolean)
-      .join("\n");
+    ].filter(Boolean);
 
-    const waUrl = `https://wa.me/917977958220?text=${encodeURIComponent(waMessage)}`;
-    window.open(waUrl, "_blank", "noopener,noreferrer");
+    const waMessage = ["*New trip inquiry — Mountain Delights*", "", ...lines].join("\n");
+    const mailUrl =
+      `mailto:mountaindelights05@gmail.com?subject=${encodeURIComponent(
+        `New trip inquiry — ${data.destination} (${data.full_name})`,
+      )}&body=${encodeURIComponent(lines.join("\n"))}`;
+
+    setWaLink(`https://wa.me/917977958220?text=${encodeURIComponent(waMessage)}`);
+    setMailLink(mailUrl);
+
+    // Send the inquiry to mountaindelights05@gmail.com
+    window.location.href = mailUrl;
 
     setSent(true);
   };
+
 
   return (
     <SiteLayout>
