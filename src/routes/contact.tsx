@@ -53,8 +53,11 @@ type InquiryForm = z.input<typeof inquirySchema>;
 
 function ContactPage() {
   const [sent, setSent] = useState(false);
+  const [waLink, setWaLink] = useState("https://wa.me/917977958220");
+  const [mailLink, setMailLink] = useState("mailto:mountaindelights05@gmail.com");
   const [submitting, setSubmitting] = useState(false);
   const [errors, setErrors] = useState<Partial<Record<keyof InquiryForm, string>>>({});
+
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
