@@ -162,15 +162,17 @@ function ContactPage() {
             <div className="py-10 text-center">
               <div className="font-serif text-2xl">Got it — talk soon.</div>
               <p className="mt-2 text-muted-foreground">
-                A WhatsApp message with your trip details has been opened. Just tap send and we'll reply from mountaindelights05@gmail.com within two working days.
+                Your inquiry has been saved and an email to mountaindelights05@gmail.com
+                was opened in your mail app — just hit send. Prefer WhatsApp? Send it there instead.
               </p>
-              <a
-                href="https://wa.me/917977958220"
-                className="mt-4 inline-block text-sm text-[var(--color-pine)] hover:underline"
-              >
-                Open WhatsApp again →
-              </a>
+              <div className="mt-5 flex flex-wrap justify-center gap-3">
+                <a href={mailLink} className="btn-ghost text-sm">Open email again</a>
+                <a href={waLink} target="_blank" rel="noreferrer" className="btn-primary text-sm">
+                  Send on WhatsApp →
+                </a>
+              </div>
             </div>
+
           ) : (
             <>
               <div className="grid sm:grid-cols-2 gap-4">
