@@ -53,8 +53,11 @@ type InquiryForm = z.input<typeof inquirySchema>;
 
 function ContactPage() {
   const [sent, setSent] = useState(false);
+  const [waLink, setWaLink] = useState("https://wa.me/917977958220");
+  const [mailLink, setMailLink] = useState("mailto:mountaindelights05@gmail.com");
   const [submitting, setSubmitting] = useState(false);
   const [errors, setErrors] = useState<Partial<Record<keyof InquiryForm, string>>>({});
+
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -95,9 +98,7 @@ function ContactPage() {
       return;
     }
 
-    const waMessage = [
-      "*New trip inquiry — Mountain Delights*",
-      "",
+    const lines = [
       `Name: ${data.full_name}`,
       `Email: ${data.email}`,
       data.phone ? `Phone: ${data.phone}` : "",
@@ -107,15 +108,23 @@ function ContactPage() {
       `Travelers: ${data.travelers}`,
       `Budget: ${data.budget_range}`,
       data.message ? `\nMessage: ${data.message}` : "",
-    ]
-      .filter(Boolean)
-      .join("\n");
+    ].filter(Boolean);
 
-    const waUrl = `https://wa.me/917977958220?text=${encodeURIComponent(waMessage)}`;
-    window.open(waUrl, "_blank", "noopener,noreferrer");
+    const waMessage = ["*New trip inquiry — Mountain Delights*", "", ...lines].join("\n");
+    const mailUrl =
+      `mailto:mountaindelights05@gmail.com?subject=${encodeURIComponent(
+        `New trip inquiry — ${data.destination} (${data.full_name})`,
+      )}&body=${encodeURIComponent(lines.join("\n"))}`;
+
+    setWaLink(`https://wa.me/917977958220?text=${encodeURIComponent(waMessage)}`);
+    setMailLink(mailUrl);
+
+    // Send the inquiry to mountaindelights05@gmail.com
+    window.location.href = mailUrl;
 
     setSent(true);
   };
+
 
   return (
     <SiteLayout>
@@ -153,15 +162,17 @@ function ContactPage() {
             <div className="py-10 text-center">
               <div className="font-serif text-2xl">Got it — talk soon.</div>
               <p className="mt-2 text-muted-foreground">
-                A WhatsApp message with your trip details has been opened. Just tap send and we'll reply from mountaindelights05@gmail.com within two working days.
+                Your inquiry has been saved and an email to mountaindelights05@gmail.com
+                was opened in your mail app — just hit send. Prefer WhatsApp? Send it there instead.
               </p>
-              <a
-                href="https://wa.me/917977958220"
-                className="mt-4 inline-block text-sm text-[var(--color-pine)] hover:underline"
-              >
-                Open WhatsApp again →
-              </a>
+              <div className="mt-5 flex flex-wrap justify-center gap-3">
+                <a href={mailLink} className="btn-ghost text-sm">Open email again</a>
+                <a href={waLink} target="_blank" rel="noreferrer" className="btn-primary text-sm">
+                  Send on WhatsApp →
+                </a>
+              </div>
             </div>
+
           ) : (
             <>
               <div className="grid sm:grid-cols-2 gap-4">
