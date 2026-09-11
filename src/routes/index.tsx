@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
-import { destinations, blogPosts } from "@/lib/destinations";
+import { destinations } from "@/lib/destinations";
 import hero from "@/assets/hero-mountains.jpg";
 
 export const Route = createFileRoute("/")({
