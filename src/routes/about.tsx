@@ -17,9 +17,9 @@ function AboutPage() {
   return (
     <SiteLayout>
       <section className="container-prose pt-20 pb-12 md:pt-28">
-        <h1 className="font-serif text-4xl md:text-6xl max-w-4xl leading-tight">
+        <h2 className="font-serif text-4xl md:text-6xl max-w-4xl leading-tight">
           Mountain Delights — Explore More. Without Limits.
-        </h1>
+        </h2>
         <p className="mt-6 max-w-3xl text-lg text-foreground/80 leading-relaxed">
           Mountain Delights is a travel company creating personalized holiday experiences
           across India — from the snow-capped valleys of Kashmir and Himachal Pradesh to
@@ -37,6 +37,9 @@ function AboutPage() {
       <section className="container-prose pb-20">
         <div className="border-t border-border pt-12">
           <span className="eyebrow">Our Mission</span>
+          <h1 className="mt-4 font-serif text-4xl md:text-6xl text-black leading-tight">
+            Our Mission
+          </h1>
           <p className="mt-6 max-w-3xl text-lg text-foreground/80 leading-relaxed">
             We take the time to understand what you want from a trip — the destination,
             the pace, the people you're traveling with — before we plan anything. Whether
@@ -93,19 +96,31 @@ function AboutPage() {
 
       <section className="container-prose py-20 md:py-28">
         <span className="eyebrow">Why Choose Mountain Delights</span>
-        <ul className="mt-8 grid sm:grid-cols-2 gap-5">
+        <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {[
-            "Personalized, destination-specific trip planning — not a one-size-fits-all package",
-            "Transparent pricing with no hidden costs",
-            "Reliable on-ground travel assistance across Kashmir, Kerala, Himachal Pradesh, Andaman, Sikkim, and Shimla",
-            "Flexible itineraries for families, couples, groups, and corporate travelers",
-          ].map((point) => (
-            <li key={point} className="flex gap-3 text-foreground/85">
-              <span className="text-[var(--color-pine)]">·</span>
-              <span>{point}</span>
-            </li>
+            {
+              title: "Personalized Planning",
+              text: "We design trips around your destination, dates, and travel style — not a one-size-fits-all package.",
+            },
+            {
+              title: "Transparent Pricing",
+              text: "Clear costs with no hidden charges, so you know exactly what you're paying for.",
+            },
+            {
+              title: "On-ground Support",
+              text: "Reliable travel assistance across Kashmir, Kerala, Himachal Pradesh, Andaman, Sikkim, and Shimla.",
+            },
+            {
+              title: "Flexible Itineraries",
+              text: "Plans tailored for families, couples, groups, and corporate travelers alike.",
+            },
+          ].map((item) => (
+            <div key={item.title} className="rounded-lg border border-border bg-card p-6">
+              <h3 className="font-serif text-xl">{item.title}</h3>
+              <p className="mt-3 text-sm text-foreground/80 leading-relaxed">{item.text}</p>
+            </div>
           ))}
-        </ul>
+        </div>
         <p className="mt-8 text-foreground/80">
           Whether you're planning a Kerala family holiday, a Kashmir honeymoon, a Himachal
           adventure trip, or a corporate group tour, Mountain Delights helps you plan it
