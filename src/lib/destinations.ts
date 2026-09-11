@@ -122,37 +122,3 @@ export const destinations: Destination[] = [
   },
 ];
 
-export const blogPosts = [
-  {
-    slug: "first-time-ladakh",
-    number: "01",
-    title: "Acclimatising in Leh without losing three days to a headache",
-    excerpt: "The boring stuff — water, salt, sleep, and one trick most guidebooks skip.",
-    readTime: "6 min read",
-    tag: "Practical",
-  },
-  {
-    slug: "spiti-in-winter",
-    number: "02",
-    title: "Driving the Spiti circuit in late October, before the passes close",
-    excerpt: "A two-week loop from Shimla to Kaza and back, with where to stop and what to skip.",
-    readTime: "11 min read",
-    tag: "Itinerary",
-  },
-  {
-    slug: "monastery-festivals",
-    number: "03",
-    title: "Six Himalayan monastery festivals worth planning a trip around",
-    excerpt: "Cham dances at Hemis, the mask festivals of Tawang, and how to be a good guest.",
-    readTime: "8 min read",
-    tag: "Culture",
-  },
-  {
-    slug: "munnar-monsoon",
-    number: "04",
-    title: "Why the Western Ghats are best in the shoulder months",
-    excerpt: "Tea estates, leech socks, and the case for visiting Munnar in September.",
-    readTime: "5 min read",
-    tag: "Seasons",
-  },
-];

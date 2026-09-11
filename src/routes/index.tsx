@@ -9,7 +9,7 @@ export const Route = createFileRoute("/")({
       { title: "Mountain Delights — Honest journeys through the Indian mountains" },
       { name: "description", content: "Small-group and self-planned trips across Ladakh, Himachal, Uttarakhand, Sikkim and the Western Ghats. Real itineraries, local guides, no filler." },
       { property: "og:title", content: "Mountain Delights — Indian mountain travel" },
-      { property: "og:description", content: "Routes, field notes and trip planning for the Indian Himalaya and Western Ghats." },
+      { property: "og:description", content: "Routes and trip planning for the Indian Himalaya and Western Ghats." },
     ],
   }),
   component: Home,
