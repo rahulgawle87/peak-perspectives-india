@@ -121,39 +121,6 @@ function Home() {
         </div>
       </section>
 
-      {/* Blog highlights — field notes */}
-      <section className="container-prose py-20 md:py-28">
-        <div className="grid md:grid-cols-12 gap-10 mb-12">
-          <div className="md:col-span-4">
-            <span className="eyebrow">Field notes</span>
-            <h2 className="mt-3 font-serif text-3xl md:text-5xl">From the trail</h2>
-          </div>
-          <p className="md:col-span-8 text-foreground/80 text-lg max-w-2xl">
-            Short, specific dispatches from guides and travellers — what worked,
-            what didn't, and what we'd do differently next season.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-x-12 gap-y-10">
-          {blogPosts.map((p) => (
-            <article key={p.slug} className="grid grid-cols-12 gap-4 border-t border-border pt-8">
-              <div className="col-span-2 font-serif text-3xl text-[var(--color-ochre)]">{p.number}</div>
-              <div className="col-span-10">
-                <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                  <span className="uppercase tracking-[0.16em]">{p.tag}</span>
-                  <span>·</span>
-                  <span>{p.readTime}</span>
-                </div>
-                <h3 className="mt-2 font-serif text-xl md:text-2xl leading-snug">{p.title}</h3>
-                <p className="mt-2 text-foreground/75">{p.excerpt}</p>
-                <Link to="/blog" className="mt-3 inline-block text-sm underline underline-offset-4 hover:text-[var(--color-pine)]">
-                  Read note →
-                </Link>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
 
       {/* CTA */}
       <section className="bg-[var(--color-pine)] text-primary-foreground">
