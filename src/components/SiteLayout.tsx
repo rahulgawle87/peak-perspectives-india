@@ -4,7 +4,6 @@ import type { ReactNode } from "react";
 const nav = [
   { to: "/", label: "Home" },
   { to: "/destinations", label: "Destinations" },
-  { to: "/blog", label: "Blog" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ] as const;
@@ -57,8 +56,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
           <div>
             <div className="eyebrow mb-3">Elsewhere</div>
             <ul className="space-y-2 text-sm">
-              <li><a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-foreground text-foreground/75">Instagram</a></li>
-              <li><a href="https://youtube.com" target="_blank" rel="noreferrer" className="hover:text-foreground text-foreground/75">YouTube</a></li>
+              <li><a href="https://www.instagram.com/mountaindelights_?igsi=MTZnZmx4aHd6N3A3Mw%3D%3D&utm_source=qr" target="_blank" rel="noreferrer" className="hover:text-foreground text-foreground/75">Instagram</a></li>
               <li><a href="mailto:mountaindelights05@gmail.com" className="hover:text-foreground text-foreground/75">mountaindelights05@gmail.com</a></li>
             </ul>
           </div>
