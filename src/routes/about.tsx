@@ -1,13 +1,62 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/SiteLayout";
 
+const aboutSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  name: "About Mountain Delights",
+  description:
+    "Founded by Rohan Pawar. Small-group trips across the Indian Himalaya and Western Ghats with local partners.",
+  url: "https://www.mountaindelights.in/about",
+  mainEntity: {
+    "@type": "TravelAgency",
+    name: "Mountain Delights",
+    founder: {
+      "@type": "Person",
+      name: "Rohan Pawar",
+      jobTitle: "Founder & Director",
+    },
+  },
+};
+
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Mountain Delights — Personalized Indian Holiday Experiences" },
-      { name: "description", content: "Mountain Delights creates personalized holiday packages across India — Kashmir, Kerala, Himachal Pradesh, Andaman, Sikkim and Shimla. Customized tours, honeymoons, group trips and corporate travel." },
-      { property: "og:title", content: "About Mountain Delights" },
-      { property: "og:description", content: "Personalized holiday experiences across India — from mountains to backwaters." },
+      {
+        title:
+          "About Mountain Delights – Honest Indian Mountain Journeys by Rohan Pawar",
+      },
+      {
+        name: "description",
+        content:
+          "Founded by Rohan Pawar. Small-group, authentic trips across Ladakh, Himachal, Uttarakhand, Sikkim, Kashmir and Kerala hills. Local partners, transparent pricing, no hard sell.",
+      },
+      {
+        property: "og:title",
+        content: "About Mountain Delights – Honest Journeys by Rohan Pawar",
+      },
+      {
+        property: "og:description",
+        content:
+          "A small team that grew up in these mountains. Honest journeys across the Indian Himalaya and Western Ghats.",
+      },
+      { property: "og:type", content: "website" },
+      {
+        property: "og:url",
+        content: "https://www.mountaindelights.in/about",
+      },
+    ],
+    links: [
+      {
+        rel: "canonical",
+        href: "https://www.mountaindelights.in/about",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(aboutSchema),
+      },
     ],
   }),
   component: AboutPage,
@@ -16,148 +65,91 @@ export const Route = createFileRoute("/about")({
 function AboutPage() {
   return (
     <SiteLayout>
-      <section className="container-prose pt-20 pb-12 md:pt-28">
-        <h2 className="font-serif text-4xl md:text-6xl max-w-4xl leading-tight">
-          Mountain Delights — Explore More. Without Limits.
-        </h2>
-        <p className="mt-6 max-w-3xl text-lg text-foreground/80 leading-relaxed">
-          Mountain Delights is a travel company creating personalized holiday experiences
-          across India — from the snow-capped valleys of Kashmir and Himachal Pradesh to
-          the backwaters of Kerala, the islands of Andaman, and the hills of Sikkim and
-          Shimla.
-        </p>
-        <p className="mt-4 max-w-3xl text-lg text-foreground/80 leading-relaxed">
-          We plan customized holiday packages, honeymoon packages, group tours, corporate
-          travel, and adventure and nature trips, built around your destination, budget,
-          and schedule rather than a fixed template. Every itinerary is planned to be
-          simple to book, comfortable to travel, and easy to remember.
+      <section className="container-prose pt-20 pb-16 md:pt-28">
+        <span className="eyebrow">About</span>
+        <h1 className="mt-4 font-serif text-4xl md:text-6xl max-w-3xl leading-tight">
+          A small team that grew up in these mountains.
+        </h1>
+        <p className="mt-6 max-w-2xl text-lg text-foreground/80">
+          We plan honest, unhurried journeys across the Indian Himalaya and
+          Western Ghats — Ladakh, Himachal, Uttarakhand, Sikkim, Kashmir and
+          Kerala's hill country. Real routes and local partners, not
+          cookie-cutter packages.
         </p>
       </section>
 
-      <section className="container-prose pb-20">
-        <div className="border-t border-border pt-12">
-          <span className="eyebrow">Our Mission</span>
-          <h1 className="mt-4 font-serif text-4xl md:text-6xl text-black leading-tight">
-            Our Mission
-          </h1>
-          <p className="mt-6 max-w-3xl text-lg text-foreground/80 leading-relaxed">
-            We take the time to understand what you want from a trip — the destination,
-            the pace, the people you're traveling with — before we plan anything. Whether
-            that means a Kashmir honeymoon package, a Kerala backwaters family holiday, a
-            Himachal Pradesh adventure trip, or a corporate offsite in the hills, we
-            handle the transportation, accommodation, and on-ground travel assistance so
-            you don't have to.
+      <section className="container-prose pb-20 grid md:grid-cols-12 gap-12">
+        <div className="md:col-span-7 space-y-6 text-lg leading-relaxed text-foreground/85">
+          <p>
+            Mountain Delights started in 2014 as a notebook of routes shared
+            between three friends — a mountaineering instructor from Manali, a
+            naturalist from Munnar, and a homestay owner in Yuksom. We were
+            tired of packages that treated the Himalaya like a backdrop.
+          </p>
+          <p>
+            Today we're a team of eleven across Himachal, Sikkim and Kerala. We
+            plan trips the way we plan our own: pick the right weather window,
+            sleep where the food is good, walk further than you drive, and leave
+            room for the day the weather changes its mind.
+          </p>
+          <p>
+            We don't own the homestays, jeeps or guides we work with — they're
+            independent partners we've known for years. That keeps the trips
+            honest and the money in the villages.
           </p>
         </div>
-      </section>
-
-      <section className="border-t border-border bg-[oklch(0.945_0.02_78)]">
-        <div className="container-prose py-20 md:py-28">
-          <span className="eyebrow">What We Offer</span>
-          <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Customized Holiday Packages",
-                text: "Personalized India tour packages designed around your chosen destination, travel dates, and budget.",
-              },
-              {
-                title: "Honeymoon Packages",
-                text: "Romantic getaways to Kashmir, Kerala, Andaman, and Himachal Pradesh, planned for couples who want the details handled.",
-              },
-              {
-                title: "Group Tours",
-                text: "Well-organized group travel packages with comfortable transport and stay arrangements.",
-              },
-              {
-                title: "Corporate Travel",
-                text: "Business travel and MICE arrangements for corporate groups, meetings, and offsites.",
-              },
-              {
-                title: "Adventure & Nature Trips",
-                text: "Trekking, valley, and forest experiences across the Himalayas, Sikkim, and Himachal Pradesh.",
-              },
-              {
-                title: "Transportation & Accommodation",
-                text: "End-to-end travel and stay arrangements across all our destinations.",
-              },
-              {
-                title: "Complete Travel Assistance",
-                text: "Planning support from booking through on-trip help.",
-              },
-            ].map((item) => (
-              <div key={item.title} className="rounded-lg border border-border bg-card p-6">
-                <h3 className="font-serif text-xl">{item.title}</h3>
-                <p className="mt-3 text-sm text-foreground/80 leading-relaxed">{item.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="container-prose py-20 md:py-28">
-        <span className="eyebrow">Why Choose Mountain Delights</span>
-        <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[
-            {
-              title: "Personalized Planning",
-              text: "We design trips around your destination, dates, and travel style — not a one-size-fits-all package.",
-            },
-            {
-              title: "Transparent Pricing",
-              text: "Clear costs with no hidden charges, so you know exactly what you're paying for.",
-            },
-            {
-              title: "On-ground Support",
-              text: "Reliable travel assistance across Kashmir, Kerala, Himachal Pradesh, Andaman, Sikkim, and Shimla.",
-            },
-            {
-              title: "Flexible Itineraries",
-              text: "Plans tailored for families, couples, groups, and corporate travelers alike.",
-            },
-          ].map((item) => (
-            <div key={item.title} className="rounded-lg border border-border bg-card p-6">
-              <h3 className="font-serif text-xl">{item.title}</h3>
-              <p className="mt-3 text-sm text-foreground/80 leading-relaxed">{item.text}</p>
-            </div>
-          ))}
-        </div>
-        <p className="mt-8 text-foreground/80">
-          Whether you're planning a Kerala family holiday, a Kashmir honeymoon, a Himachal
-          adventure trip, or a corporate group tour, Mountain Delights helps you plan it
-          with confidence.
-        </p>
-      </section>
-
-      <section className="border-t border-border bg-[oklch(0.945_0.02_78)]">
-        <div className="container-prose py-20 md:py-28 grid md:grid-cols-2 gap-12 items-start">
-          <div>
-            <span className="eyebrow">Meet the Founder</span>
-            <h2 className="mt-3 font-serif text-3xl md:text-4xl">Rohan Pawar</h2>
-            <p className="mt-2 text-sm uppercase tracking-[0.16em] text-muted-foreground">
-              Founder & Director, Mountain Delights
+        <div className="md:col-span-5">
+          <div className="rounded-lg border border-border bg-muted/30 p-6">
+            <p className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
+              Meet the founder
             </p>
-          </div>
-          <div className="space-y-4 text-foreground/85 leading-relaxed">
-            <p>
-              Rohan Pawar, Founder of Mountain Delights, believes that travel is more than
-              just a destination — it's about the experiences, connections, and memories you
-              take back with you.
+            <h2 className="mt-2 font-serif text-2xl">Rohan Pawar</h2>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Founder & Director
             </p>
-            <p>
-              Driven by a passion for exploration and discovering new places, his vision for
-              Mountain Delights is simple:
-            </p>
-            <p className="font-serif text-2xl text-[var(--color-pine)]">
-              Explore More. Without Limits.
+            <p className="mt-4 text-sm leading-relaxed text-foreground/80">
+              Rohan believes travel is more than a destination — it's the
+              experiences, connections, and memories you take back. His vision
+              for Mountain Delights is simple: Explore More. Without Limits.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="container-prose py-20 text-center">
-        <h2 className="font-serif text-3xl md:text-4xl">Your journey. Our commitment.</h2>
-        <p className="mt-3 text-foreground/70">Mountain Delights — Where Every Journey Meets the Mountains.</p>
-        <Link to="/contact" className="btn-primary mt-8">Plan your trip →</Link>
+      <section className="container-prose pb-24">
+        <h2 className="font-serif text-2xl md:text-3xl">Why travel with us</h2>
+        <ul className="mt-8 grid sm:grid-cols-2 gap-6">
+          <li className="rounded-lg border border-border p-5">
+            <h3 className="font-medium">Personalized planning</h3>
+            <p className="mt-2 text-sm text-foreground/75">
+              Designed around your dates, pace and budget — Indian Himalaya tour
+              or Western Ghats week, same care.
+            </p>
+          </li>
+          <li className="rounded-lg border border-border p-5">
+            <h3 className="font-medium">Transparent pricing</h3>
+            <p className="mt-2 text-sm text-foreground/75">
+              Clear costs, no hidden charges.
+            </p>
+          </li>
+          <li className="rounded-lg border border-border p-5">
+            <h3 className="font-medium">On-ground support</h3>
+            <p className="mt-2 text-sm text-foreground/75">
+              Local partners in Himachal, Sikkim, Kashmir and Kerala.
+            </p>
+          </li>
+          <li className="rounded-lg border border-border p-5">
+            <h3 className="font-medium">Flexible itineraries</h3>
+            <p className="mt-2 text-sm text-foreground/75">
+              For couples, families, small groups and slow travellers.
+            </p>
+          </li>
+        </ul>
+        <div className="mt-12">
+          <Link to="/contact" className="btn-primary">
+            Plan your trip →
+          </Link>
+        </div>
       </section>
     </SiteLayout>
   );
