@@ -8,10 +8,35 @@ import { toast } from "sonner";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Plan a trip — Booking inquiry | Mountain Delights" },
-      { name: "description", content: "Share your destination, dates, group size and budget. A real person replies within two working days with a draft route and honest pricing." },
-      { property: "og:title", content: "Plan an Indian mountain trip — Mountain Delights" },
-      { property: "og:description", content: "Tell us about your trip and we'll come back with a draft itinerary." },
+      {
+        title:
+          "Plan Your Indian Mountain Trip – Free Route Proposal | Mountain Delights",
+      },
+      {
+        name: "description",
+        content:
+          "Tell us where and when you want to go in the Indian Himalaya or Western Ghats. We reply within 2 working days with a realistic route, homestays, and transparent pricing.",
+      },
+      {
+        property: "og:title",
+        content: "Plan Your Indian Mountain Trip – Free Route Proposal",
+      },
+      {
+        property: "og:description",
+        content:
+          "Share destination, dates and group size. A real person replies with a draft itinerary and fair price.",
+      },
+      { property: "og:type", content: "website" },
+      {
+        property: "og:url",
+        content: "https://www.mountaindelights.in/contact",
+      },
+    ],
+    links: [
+      {
+        rel: "canonical",
+        href: "https://www.mountaindelights.in/contact",
+      },
     ],
   }),
   component: ContactPage,
@@ -26,6 +51,7 @@ const DESTINATIONS = [
   "Shimla",
   "Manali",
   "Rajasthan — Aravallis",
+  "Kashmir",
   "Not sure yet",
 ] as const;
 
@@ -56,8 +82,9 @@ function ContactPage() {
   const [waLink, setWaLink] = useState("https://wa.me/917977958220");
   const [mailLink, setMailLink] = useState("mailto:mountaindelights05@gmail.com");
   const [submitting, setSubmitting] = useState(false);
-  const [errors, setErrors] = useState<Partial<Record<keyof InquiryForm, string>>>({});
-
+  const [errors, setErrors] = useState<
+    Partial<Record<keyof InquiryForm, string>>
+  >({});
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -94,7 +121,9 @@ function ContactPage() {
 
     if (error) {
       console.error("Inquiry submit failed", error);
-      toast.error("Something went wrong. Please try again or email us directly.");
+      toast.error(
+        "Something went wrong. Please try again or email us directly.",
+      );
       return;
     }
 
@@ -110,21 +139,22 @@ function ContactPage() {
       data.message ? `\nMessage: ${data.message}` : "",
     ].filter(Boolean);
 
-    const waMessage = ["*New trip inquiry — Mountain Delights*", "", ...lines].join("\n");
-    const mailUrl =
-      `mailto:mountaindelights05@gmail.com?subject=${encodeURIComponent(
-        `New trip inquiry — ${data.destination} (${data.full_name})`,
-      )}&body=${encodeURIComponent(lines.join("\n"))}`;
+    const waMessage = [
+      "*New trip inquiry — Mountain Delights*",
+      "",
+      ...lines,
+    ].join("\n");
+    const mailUrl = `mailto:mountaindelights05@gmail.com?subject=${encodeURIComponent(
+      `New trip inquiry — ${data.destination} (${data.full_name})`,
+    )}&body=${encodeURIComponent(lines.join("\n"))}`;
 
-    setWaLink(`https://wa.me/917977958220?text=${encodeURIComponent(waMessage)}`);
+    setWaLink(
+      `https://wa.me/917977958220?text=${encodeURIComponent(waMessage)}`,
+    );
     setMailLink(mailUrl);
-
-    // Send the inquiry to mountaindelights05@gmail.com
     window.location.href = mailUrl;
-
     setSent(true);
   };
-
 
   return (
     <SiteLayout>
@@ -137,18 +167,26 @@ function ContactPage() {
           <p className="mt-6 text-foreground/80 leading-relaxed">
             A few details help us draft something realistic — not a sales pitch.
             We reply within two working days with a route, suggested homestays,
-            and a fair price.
+            and a fair price for your Indian mountain journey.
           </p>
           <div className="mt-10 space-y-4 text-sm">
             <div>
               <div className="eyebrow mb-1">Write</div>
-              <a href="mailto:mountaindelights05@gmail.com" className="text-foreground hover:text-[var(--color-pine)]">mountaindelights05@gmail.com</a>
+              <a
+                href="mailto:mountaindelights05@gmail.com"
+                className="text-foreground hover:text-[var(--color-pine)]"
+              >
+                mountaindelights05@gmail.com
+              </a>
             </div>
-              <div>
+            <div>
               <div className="eyebrow mb-1">WhatsApp</div>
-              <div className="space-y-1">
-                <a href="https://wa.me/917977958220" className="block text-foreground hover:text-[var(--color-pine)]">+91 79779 58220</a>
-              </div>
+              <a
+                href="https://wa.me/917977958220"
+                className="block text-foreground hover:text-[var(--color-pine)]"
+              >
+                +91 79779 58220
+              </a>
             </div>
           </div>
         </div>
@@ -162,36 +200,72 @@ function ContactPage() {
             <div className="py-10 text-center">
               <div className="font-serif text-2xl">Got it — talk soon.</div>
               <p className="mt-2 text-muted-foreground">
-                Your inquiry has been saved and an email to mountaindelights05@gmail.com
-                was opened in your mail app — just hit send. Prefer WhatsApp? Send it there instead.
+                Your inquiry was saved and an email draft opened — just hit
+                send. Or use WhatsApp below.
               </p>
               <div className="mt-5 flex flex-wrap justify-center gap-3">
-                <a href={mailLink} className="btn-ghost text-sm">Open email again</a>
-                <a href={waLink} target="_blank" rel="noreferrer" className="btn-primary text-sm">
+                <a href={mailLink} className="btn-ghost text-sm">
+                  Open email again
+                </a>
+                <a
+                  href={waLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-primary text-sm"
+                >
                   Send on WhatsApp →
                 </a>
               </div>
             </div>
-
           ) : (
             <>
               <div className="grid sm:grid-cols-2 gap-4">
                 <Field label="Your name" error={errors.full_name}>
-                  <input name="full_name" required maxLength={120} className="input" placeholder="Aanya Sharma" />
+                  <input
+                    name="full_name"
+                    required
+                    maxLength={120}
+                    className="input"
+                    placeholder="Aanya Sharma"
+                  />
                 </Field>
                 <Field label="Email" error={errors.email}>
-                  <input name="email" required type="email" maxLength={254} className="input" placeholder="you@example.com" />
+                  <input
+                    name="email"
+                    required
+                    type="email"
+                    maxLength={254}
+                    className="input"
+                    placeholder="you@example.com"
+                  />
                 </Field>
               </div>
 
               <div className="grid sm:grid-cols-2 gap-4">
                 <Field label="Phone / WhatsApp (optional)" error={errors.phone}>
-                  <input name="phone" type="tel" maxLength={40} className="input" placeholder="+91 98XXX XXXXX" />
+                  <input
+                    name="phone"
+                    type="tel"
+                    maxLength={40}
+                    className="input"
+                    placeholder="+91 98XXX XXXXX"
+                  />
                 </Field>
                 <Field label="Destination" error={errors.destination}>
-                  <select name="destination" required className="input" defaultValue="">
-                    <option value="" disabled>Pick a region</option>
-                    {DESTINATIONS.map((d) => <option key={d} value={d}>{d}</option>)}
+                  <select
+                    name="destination"
+                    required
+                    className="input"
+                    defaultValue=""
+                  >
+                    <option value="" disabled>
+                      Pick a region
+                    </option>
+                    {DESTINATIONS.map((d) => (
+                      <option key={d} value={d}>
+                        {d}
+                      </option>
+                    ))}
                   </select>
                 </Field>
               </div>
@@ -204,25 +278,59 @@ function ContactPage() {
                   <input name="end_date" type="date" className="input" />
                 </Field>
                 <Field label="Travelers" error={errors.travelers}>
-                  <input name="travelers" type="number" min={1} max={50} defaultValue={2} required className="input" />
+                  <input
+                    name="travelers"
+                    type="number"
+                    min={1}
+                    max={50}
+                    defaultValue={2}
+                    required
+                    className="input"
+                  />
                 </Field>
               </div>
 
-              <Field label="Budget range (per person)" error={errors.budget_range}>
-                <select name="budget_range" required className="input" defaultValue="">
-                  <option value="" disabled>Pick a range</option>
-                  {BUDGETS.map((b) => <option key={b} value={b}>{b}</option>)}
+              <Field
+                label="Budget range (per person)"
+                error={errors.budget_range}
+              >
+                <select
+                  name="budget_range"
+                  required
+                  className="input"
+                  defaultValue=""
+                >
+                  <option value="" disabled>
+                    Pick a range
+                  </option>
+                  {BUDGETS.map((b) => (
+                    <option key={b} value={b}>
+                      {b}
+                    </option>
+                  ))}
                 </select>
               </Field>
 
               <Field label="Tell us about the trip (optional)" error={errors.message}>
-                <textarea name="message" rows={5} maxLength={2000} className="input" placeholder="Who's travelling, how slow you want to go, what you're hoping to see…" />
+                <textarea
+                  name="message"
+                  rows={5}
+                  maxLength={2000}
+                  className="input"
+                  placeholder="Who's travelling, how slow you want to go, what you're hoping to see…"
+                />
               </Field>
 
-              <button type="submit" disabled={submitting} className="btn-primary disabled:opacity-60 disabled:cursor-not-allowed">
+              <button
+                type="submit"
+                disabled={submitting}
+                className="btn-primary disabled:opacity-60 disabled:cursor-not-allowed"
+              >
                 {submitting ? "Sending…" : "Send inquiry →"}
               </button>
-              <p className="text-xs text-muted-foreground">We don't share your details. No newsletter spam.</p>
+              <p className="text-xs text-muted-foreground">
+                We don't share your details. No newsletter spam.
+              </p>
             </>
           )}
         </form>
@@ -245,12 +353,22 @@ function ContactPage() {
   );
 }
 
-function Field({ label, error, children }: { label: string; error?: string; children: React.ReactNode }) {
+function Field({
+  label,
+  error,
+  children,
+}: {
+  label: string;
+  error?: string;
+  children: React.ReactNode;
+}) {
   return (
     <label className="block">
       <span className="eyebrow mb-2 block">{label}</span>
       {children}
-      {error ? <span className="mt-1 block text-xs text-red-600">{error}</span> : null}
+      {error ? (
+        <span className="mt-1 block text-xs text-red-600">{error}</span>
+      ) : null}
     </label>
   );
 }
