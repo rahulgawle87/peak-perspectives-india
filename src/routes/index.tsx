@@ -8,7 +8,7 @@ const travelAgencySchema = {
   "@type": "TravelAgency",
   name: "Mountain Delights",
   description:
-    "Honest, unhurried journeys across the Indian Himalaya and Western Ghats — Ladakh, Himachal, Uttarakhand, Sikkim, Kashmir and more.",
+    "Honest, unhurried journeys across the Indian Himalaya and Western Ghats — Ladakh, Himachal, Uttarakhand, Sikkim and more.",
   url: "https://www.mountaindelights.in/",
   areaServed: { "@type": "Country", name: "India" },
   knowsAbout: [
@@ -39,7 +39,7 @@ const faqSchema = {
       name: "What destinations does Mountain Delights cover?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "We plan trips across Ladakh, Himachal Pradesh, Uttarakhand, Sikkim, Kashmir, Shimla, Manali and the Western Ghats of Kerala. Each region has different seasons, altitudes and travel styles.",
+        text: "We plan trips across Ladakh, Himachal Pradesh, Uttarakhand, Sikkim and the Western Ghats of Kerala. Each region has different seasons, altitudes and travel styles.",
       },
     },
     {
@@ -113,7 +113,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
-  const featured = destinations.slice(0, 6);
+  const featured = destinations;
   return (
     <SiteLayout>
       <section className="relative overflow-hidden">
@@ -207,7 +207,8 @@ function Home() {
             {featured.map((d, i) => (
               <li key={d.slug} className="group">
                 <Link
-                  to="/destinations"
+                  to="/destinations/$slug"
+                  params={{ slug: d.slug }}
                   className="grid md:grid-cols-12 gap-6 py-8 items-center"
                 >
                   <div className="md:col-span-1 text-sm tabular-nums text-muted-foreground">
@@ -248,9 +249,8 @@ function Home() {
           <div>
             <dt className="font-serif text-xl">What destinations do you cover?</dt>
             <dd className="mt-2 text-foreground/80 leading-relaxed">
-              Ladakh, Himachal Pradesh (including Spiti and Kinnaur),
-              Uttarakhand, Sikkim, Kashmir, Shimla, Manali, and the Western
-              Ghats of Kerala.
+              Ladakh, Himachal Pradesh (including Spiti, Kinnaur and Shimla as a
+              ridge base), Uttarakhand, Sikkim, and the Western Ghats of Kerala.
             </dd>
           </div>
           <div>
